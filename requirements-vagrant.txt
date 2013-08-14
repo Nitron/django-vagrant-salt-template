@@ -1,0 +1,3 @@
+Fabric==1.6.1
+fabtools==0.14.0
+watchdog==0.6.0
