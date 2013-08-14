@@ -1,7 +1,14 @@
 django-vagrant-salt-template
 ============================
 
-Django startproject template that provides a working Vagrant/Salt setup with nginx/gunicorn/PostgreSQL/Celery/RabbitMQ/pgbouncer.
+Django startproject template that provides a working Vagrant/Salt setup with:
+
+* nginx
+* gunicorn
+* PostgreSQL
+* Celery
+* RabbitMQ
+* pgbouncer
 
 Requirements
 ============
