@@ -8,6 +8,8 @@ supervisor:
             - file: /etc/supervisor/supervisord.conf
         - require:
             - pkg: supervisor
+            - file: {{ pillar['django']['run_dir'] }}
+            - file: {{ pillar['django']['log_path'] }}
 
 gunicorn_app:
     file.managed:

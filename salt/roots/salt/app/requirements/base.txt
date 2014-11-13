@@ -1,14 +1,17 @@
 --find-links http://dist.plone.org/thirdparty/
-Django==1.5.1
+Django==1.7.1
 PIL==1.1.7
-bpython==0.12
-coverage==3.6
-django-celery==3.0.10
-django-debug-toolbar==0.9.4
-django-discover-runner==0.4
-django-extensions==0.9
-docutils==0.8.1
-gunicorn==0.17.4
+bpython==0.13.1
+coverage==3.7.1
+celery==3.1.16
+django-braces==1.4.0
+django-celery==3.1.16
+django-debug-toolbar==1.2.2
+django-discover-runner==1.0
+django-extensions==1.4.6
+django-model-utils==2.2
+docutils==0.12
+gunicorn==19.1.1
 logutils==0.3.3
-psycopg2==2.5.1
-south==0.8.1
+psycopg2==2.5.4
+-e git+https://github.com/pabluk/twitter-application-only-auth#egg=twitter-application-only-auth

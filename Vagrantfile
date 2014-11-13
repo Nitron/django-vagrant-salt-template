@@ -12,6 +12,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.hostname = 'vagrant'
   config.vm.network :forwarded_port, guest: 80, host: 8000
+  config.vm.network :forwarded_port, guest: 443, host: 8443
 
   config.vm.synced_folder "salt/roots/", "/srv/"
   config.vm.provision :salt do |salt|

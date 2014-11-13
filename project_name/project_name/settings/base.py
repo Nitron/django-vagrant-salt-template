@@ -194,7 +194,6 @@ DJANGO_APPS = (
 
 THIRD_PARTY_APPS = (
     # Database migration helpers:
-    'south',
     'gunicorn',
     'djcelery',
     'django_extensions',
@@ -249,3 +248,6 @@ WSGI_APPLICATION = 'wsgi.application'
 
 import djcelery
 djcelery.setup_loader()
+
+# Needed for Django 1.6+ not to complain
+TEST_RUNNER = 'django.test.runner.DiscoverRunner'

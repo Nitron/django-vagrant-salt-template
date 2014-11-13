@@ -1,6 +1,7 @@
 django:
     mode: production
     path: /home/{{ project_name }}/{{ project_name }}/{{ project_name }}
+    wsgi_module: {{ project_name }}.wsgi:application
     settings: {{ project_name }}.settings.production
     virtualenv: /home/{{ project_name }}/env
     user: {{ project_name }}

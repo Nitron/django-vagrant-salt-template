@@ -6,6 +6,7 @@ PROJECT_PATH = '/vagrant/{{ project_name }}/'
 VENV_PATH = '/home/vagrant/env'
 MANAGE_BIN = os.path.join(PROJECT_PATH, 'manage.py')
 SETTINGS = '{{ project_name }}.settings.local'
+TEST_SETTINGS = '{{ project_name }}.settings.test'
 
 
 @task
@@ -21,12 +22,13 @@ def manage_py(command):
 
 
 @task
-def syncdb():
-    manage_py("syncdb --noinput --migrate")
+def test():
+    manage_py("test", settings=TEST_SETTINGS)
 
 
 @task
 def migrate():
+    manage_py("makemigrations")
     manage_py("migrate")
 
 
@@ -37,7 +39,7 @@ def createsuperuser():
 
 @task
 def gunicorn_hup():
-    sudo("[ -e /var/run/{{ project_name }}/gunicorn.pid ] && kill -HUP $(cat /var/run/{{ project_name }}/gunicorn.pid)")
+    sudo("kill -HUP $(supervisorctl pid gunicorn_app)")
 
 
 @task
@@ -63,3 +65,8 @@ def vagrant_up():
         execute(provision)
         execute(syncdb)
         execute(watchdog)
+
+
+@task
+def clean_pyc():
+    local('find . -name "*.pyc" -delete')
