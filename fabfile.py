@@ -63,7 +63,7 @@ def vagrant_up():
     local('vagrant up')
     with vagrant_settings():
         execute(provision)
-        execute(syncdb)
+        execute(migrate)
         execute(watchdog)
 
 
